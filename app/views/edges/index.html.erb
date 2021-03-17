@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box2">
+  <h3>Edges<h3>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><h4>Name</h4></th>
+      <th><h4>Source</h4></th>
+      <th><h4>Destiny</h4></th>
+      <th><h4>Value</h4></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @edges.each do |edge| %>
+      <tr>
+        <td><h4><%= edge.name %></h4></td>
+        <td><h4><%= edge.source %></h4></td>
+        <td><h4><%= edge.destiny %></h4></td>
+        <td><h4><%= edge.value %></h4></td>
+        <td><%= link_to 'Destroy', edge, method: :delete, class: "btn btn-danger btn-sm", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Edge', new_edge_path, class: "btn btn-default btn-sm" %>
+<br>
+<br>

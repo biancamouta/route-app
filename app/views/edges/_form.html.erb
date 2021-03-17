@@ -1,0 +1,50 @@
+<%= form_with(model: edge, local: true) do |form| %>
+  <% if edge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(edge.errors.count, "error") %> prohibited this edge from being saved:</h2>
+
+      <ul>
+        <% edge.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="col-sm-2">
+          <div class="form-group">
+              <%= form.label :source %>
+              <%= form.text_field :source %>
+          </div>
+      </div>
+  </div>
+  <br>
+
+    <div class="row">
+      <div class="col-sm-2">
+          <div class="form-group">
+              <%= form.label :destiny %>
+              <%= form.text_field :destiny %>
+          </div>  
+      </div>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.number_field :value %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <br>
+<%end%>

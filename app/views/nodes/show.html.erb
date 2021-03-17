@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @node.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @node.value %>
+</p>
+
+<%= link_to 'Edit', edit_node_path(@node), class: "btn btn-warning btn-sm" %> |
+<%= link_to 'Back', nodes_path, class: "btn btn-default btn-sm" %>

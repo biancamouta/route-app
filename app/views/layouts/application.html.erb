@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RoutingApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </head>
+  
+  <body>
+      <%= nav_bar brand: "Graph", class:"navbar navbar-expand-lg", brand_link: root_url do %>
+        <%= menu_group do %>
+        <%= menu_item "Nodes", nodes_path %>
+        <%= menu_item "Edges", edges_path %>
+        <%= menu_item "Route Optimizations",  optimizations_path %>
+        <%end%>
+      <%end%>
+      
+    <div class="container container-form">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+

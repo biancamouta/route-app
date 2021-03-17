@@ -1,0 +1,21 @@
+  <% if flash[:notice]%>
+    <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+    </div>
+<%end%>
+
+<tbody>
+    <div class="box2">
+    <h3>Prim Minimum Tree:</h3>
+    <h4><%=@prim_tree%></h4>
+    <br>
+    <br>
+  </div>
+    <div class="box2">
+    <h3>Prim Minimum Tree Cost:</h3>
+    <h4><%=@prim_cost%></h4>
+    <br>
+    <br>
+  </div>
+  <img src= "tree.jpg"/>
+</tbody>

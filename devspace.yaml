@@ -1,0 +1,43 @@
+version: v1beta9
+images:
+  app:
+    image: dscr.io/${DEVSPACE_USERNAME}/routeapp
+    preferSyncOverRebuild: true
+    injectRestartHelper: true
+    appendDockerfileInstructions:
+    - USER root
+deployments:
+- name: routeapp
+  helm:
+    componentChart: true
+    values:
+      containers:
+      - image: dscr.io/${DEVSPACE_USERNAME}/routeapp
+      service:
+        ports:
+        - port: 3000
+dev:
+  ports:
+  - imageName: app
+    forward:
+    - port: 3000
+  open:
+  - url: http://localhost:3000
+  sync:
+  - imageName: app
+    excludePaths:
+    - .git/
+    uploadExcludePaths:
+    - Dockerfile
+    - node_modules/
+    - tmp/pids/
+    - devspace.yaml
+    onUpload:
+      restartContainer: true
+profiles:
+- name: production
+  patches:
+  - op: remove
+    path: images.app.injectRestartHelper
+  - op: remove
+    path: images.app.appendDockerfileInstructions

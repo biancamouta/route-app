@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box2">
+  <h3>Nodes<h3><p>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><h4>Name</h4></th>
+      <th><h4>Value</h4></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nodes.each do |node| %>
+      <tr>
+        <td><h4><%= node.name %></h4></td>
+        <td><h4><%= node.value %></h4></td>
+        <td><%= link_to 'Destroy', node, method: :delete, class: "btn btn-danger btn-sm" , data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Node', new_node_path, class: "btn btn-default btn-sm" %>
+<br>
+<br>
